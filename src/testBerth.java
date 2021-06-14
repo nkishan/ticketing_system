@@ -1,6 +1,6 @@
 public class testBerth {
     public static void main(String[] args ){
-        Berth test=new Berth(1);
+        Berth test=new Berth(1,2,"dhje");
         Passenger info=new Passenger("Kishan","Male",21,"Lower");
         if(test.isAvailable(info)){
             if(test.bookBerth(info)){
