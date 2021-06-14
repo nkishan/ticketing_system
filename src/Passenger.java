@@ -35,4 +35,8 @@ public class Passenger {
     public String getGender() {
         return gender;
     }
+
+    public void setPreference(String preference) {
+        this.preference = preference;
+    }
 }

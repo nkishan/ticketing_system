@@ -20,11 +20,23 @@ public class Coach {
         }
     }
     public Berth bookBerth(Passenger info){
+        String passPreference=info.getPreference();
         for(Berth i : BerthList){
             if(i.isAvailable(info)){
                 // Add lock for concurrency
                 if(i.bookBerth(info)){
                     return i;
+                }
+            }
+        }
+        if(passPreference!=null){
+            info.setPreference(null);
+            for(Berth i : BerthList){
+                if(i.isAvailable(info)){
+                    // Add lock for concurrency
+                    if(i.bookBerth(info)){
+                        return i;
+                    }
                 }
             }
         }
