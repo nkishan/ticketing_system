@@ -22,9 +22,9 @@ public class Pnr {
         return this.pnrNumber== compare.getPnrNumber();
     }
 
-//    public int hashCode(){
-//        return pnrNumber.hashCode();
-//    }
+   public int hashCode(){
+       return pnrNumber.hashCode();
+   }
 
     public void setPnrNumber(int pnrNumber) {
         this.pnrNumber = pnrNumber;
