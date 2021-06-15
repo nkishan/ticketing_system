@@ -20,12 +20,12 @@ public class testTicketingSystem {
 
     private static void testBooking(TicketingSystem sys, String trainName) {
         int bookings = 400000;
-        List<Pnr> pnrs = new ArrayList<>();
+        List<Integer> pnrs = new ArrayList<>();
         for (int i = 0; i  < bookings; i++) {
             Passenger info = new Passenger( "kishan" + i, "Male", 21, "Upper");
-            pnrs.add(sys.bookTicket(trainName, info));
+            pnrs.add(sys.bookTicket(trainName, info).getPnrDetails());
         }
-        for (Pnr i : pnrs) {
+        for (Integer i : pnrs) {
             if (!sys.getPnrDetails(i)) {
                 System.out.println("failed");
             }
