@@ -27,16 +27,29 @@ public class TicketingSystem {
         }
         return false;
     }
+    public boolean getPnrDetails(Integer pnrNumber){
+        Pnr PnrDetails = new Pnr();
+        PnrDetails.setPnrNumber(pnrNumber);
+        if(booked.containsKey(PnrDetails)){
+//            System.out.println("PNR Number: "+PnrDetails.getPnrNumber());
+            booked.get(PnrDetails).berthDetails();
+            return true;
+        }
+//        System.out.println("Incorrect PNR");
+        return false;
+    }
 
-    public void getPnrDetails(Pnr PnrDetails){
+
+    public boolean getPnrDetails(Pnr PnrDetails){
         if(booked.containsKey(PnrDetails)){
             System.out.println("PNR Number: "+PnrDetails.getPnrNumber());
             booked.get(PnrDetails).berthDetails();
-
+            return true;
         }
         else {
             System.out.println("Incorrect PNR");
         }
+        return false;
     }
 
     public Pnr bookTicket(String trainName,Passenger info){
@@ -52,8 +65,8 @@ public class TicketingSystem {
                 newPnr.generatePnr();
             }
             booked.put(newPnr, a);
-            System.out.println("Booked!");
-            getPnrDetails(newPnr);
+//            System.out.println("Booked!");
+//            getPnrDetails(newPnr);
             return newPnr;
         }
         else {

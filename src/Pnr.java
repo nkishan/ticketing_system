@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class Pnr {
-    private int pnrNumber;
+    private Integer pnrNumber;
     HashMap<Pnr, Berth> booked = new HashMap<Pnr, Berth>();
     public Pnr(){
         pnrNumber=(int)(Math.random()*1000000000);
@@ -15,8 +15,16 @@ public class Pnr {
         pnrNumber=(int)(Math.random()*1000000000);
     }
     public boolean equals(Pnr compare){
+        return pnrNumber==compare.getPnrNumber();
+    }
+    public boolean equals(Object comparison){
+        Pnr compare=(Pnr) comparison;
         return this.pnrNumber== compare.getPnrNumber();
     }
+
+//    public int hashCode(){
+//        return pnrNumber.hashCode();
+//    }
 
     public void setPnrNumber(int pnrNumber) {
         this.pnrNumber = pnrNumber;
@@ -39,6 +47,18 @@ public class Pnr {
         }
         return false;
     }
+    public boolean getPnrDetails(Integer pnrNumber){
+        Pnr PnrDetails = new Pnr();
+        PnrDetails.setPnrNumber(pnrNumber);
+        if(booked.containsKey(PnrDetails)){
+//            System.out.println("PNR Number: "+PnrDetails.getPnrNumber());
+            booked.get(PnrDetails).berthDetails();
+            return true;
+        }
+//        System.out.println("Incorrect PNR");
+        return false;
+    }
+
 
     public void getPnrDetails(Pnr PnrDetails){
         if(booked.containsKey(PnrDetails)){
