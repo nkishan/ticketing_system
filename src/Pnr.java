@@ -14,9 +14,10 @@ public class Pnr {
     public void generatePnr(){
         pnrNumber=(int)(Math.random()*1000000000);
     }
-//    public boolean equals(Pnr compare){
-//        return pnrNumber==compare.getPnrNumber();
-//    }
+    public boolean equals(Pnr compare){
+        return pnrNumber==compare.getPnrNumber();
+    }
+
     public boolean equals(Object comparison){
         Pnr compare=(Pnr) comparison;
         return this.pnrNumber== compare.getPnrNumber();
