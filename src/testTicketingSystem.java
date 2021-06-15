@@ -23,7 +23,7 @@ public class testTicketingSystem {
         List<Integer> pnrs = new ArrayList<>();
         for (int i = 0; i  < bookings; i++) {
             Passenger info = new Passenger( "kishan" + i, "Male", 21, "Upper");
-            pnrs.add(sys.bookTicket(trainName, info).getPnrDetails());
+            pnrs.add(sys.bookTicket(trainName, info).getPnrNumber());
         }
         for (Integer i : pnrs) {
             if (!sys.getPnrDetails(i)) {
