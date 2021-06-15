@@ -1,12 +1,16 @@
 public class Berth {
     private boolean isBooked = false;
-    private Passenger details = null;
-    public final int number;
+    private Passenger passengerDetails = null;
+    public final int berthNumber;
+    public final int coachNumber;
+    public String trainName;
     private String type;
 
-    public Berth(int berthNum) {
-        number = berthNum;
-        int remainder = number % 8;
+    public Berth(int berthNum,int coachNum,String train) {
+        berthNumber = berthNum;
+        coachNumber=coachNum;
+        trainName=train;
+        int remainder = berthNumber % 8;
         if (remainder == 1 || remainder == 4 || remainder == 7) {
             type = "Lower";
         } else if (remainder == 2 || remainder == 5) {
@@ -20,7 +24,7 @@ public class Berth {
         if (isBooked) {
             return false;
         }
-        details = info;
+        passengerDetails = info;
         isBooked = true;
         return true;
     }
@@ -37,11 +41,21 @@ public class Berth {
 
     public void cancel() {
         isBooked = false;
-        details = null;
+        passengerDetails = null;
 
     }
+    public void berthDetails(){
+        System.out.println("Coach: "+coachNumber);
+        System.out.println("Berth: "+ berthNumber);
+        passengerDetails.printDetails();
+    }
+
+    public Passenger getPassengerDetails() {
+        return passengerDetails;
+    }
+
     public void modifyPassenger(Passenger newPass){
-        details.modifyDetails(newPass);
+        passengerDetails=newPass;
     }
 
 }

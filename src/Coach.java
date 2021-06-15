@@ -6,17 +6,17 @@ public class Coach {
     private int berths = 72;
     ArrayList<Berth> BerthList = new ArrayList<Berth>();
 
-    public Coach(int coachNumber) {
+    public Coach(String train,int coachNumber) {
         number = coachNumber;
         for (int i = 0; i < berths; i++) {
-            BerthList.add(new Berth(i + 1));
+            BerthList.add(new Berth(i + 1,coachNumber,train));
         }
     }
-    public Coach(int coachNumber,int berthNumber) {
+    public Coach(String train,int coachNumber,int berthNumber) {
         number = coachNumber;
         berths=berthNumber;
         for (int i = 0; i < berths; i++) {
-            BerthList.add(new Berth(i + 1));
+            BerthList.add(new Berth(i + 1,coachNumber,train));
         }
     }
     public Berth bookBerth(Passenger info){

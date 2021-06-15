@@ -39,4 +39,10 @@ public class Passenger {
     public void setPreference(String preference) {
         this.preference = preference;
     }
+
+    public void printDetails(){
+        System.out.println("Name: "+name);
+        System.out.println("Gender: "+gender);
+        System.out.println("Age: "+age);
+    }
 }
